@@ -1,0 +1,36 @@
+{
+  "data_asset_type": null,
+  "expectation_suite_name": "fact_invoice_suite",
+  "expectations": [
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "fact_invoice_key"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "dim_invoice_key"
+      },
+      "meta": {}
+    }
+  ],
+  "ge_cloud_id": null,
+  "meta": {
+    "citations": [
+      {
+        "batch_request": {
+          "data_asset_name": "FACT_INVOICE",
+          "data_connector_name": "default_configured_data_connector_name",
+          "datasource_name": "snowflake_fact_invoice",
+          "limit": 1000
+        },
+        "citation_date": "2023-06-30T23:00:13.072146Z",
+        "comment": "Created suite added via CLI"
+      }
+    ],
+    "great_expectations_version": "0.15.41"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "data_asset_type": null,
+  "expectation_suite_name": "dim_invoice_suite",
+  "expectations": [
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "dim_invoice_key"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "invoice_id"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "etl_inserted_timestamp"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "etl_updated_timestamp"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "client_id"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "payment_terms"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_table_row_count_to_be_between",
+      "kwargs": {
+        "max_value": 99999999999,
+        "min_value": 1
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_distinct_values_to_be_in_set",
+      "kwargs": {
+        "column": "payment_terms",
+        "value_set": [
+          "NET",
+          "DIF"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_most_common_value_to_be_in_set",
+      "kwargs": {
+        "column": "payment_terms",
+        "value_set": [
+          "NET"
+        ]
+      },
+      "meta": {}
+    }
+  ],
+  "ge_cloud_id": null,
+  "meta": {
+    "citations": [
+      {
+        "batch_request": {
+          "data_asset_name": "DIM_INVOICE",
+          "data_connector_name": "default_configured_data_connector_name",
+          "datasource_name": "snowflake_dim_invoice",
+          "limit": 1000
+        },
+        "citation_date": "2023-06-30T20:10:08.438651Z",
+        "comment": "Created suite added via CLI"
+      }
+    ],
+    "great_expectations_version": "0.15.41"
+  }
+}

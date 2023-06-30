@@ -1,0 +1,101 @@
+{
+  "data_asset_type": null,
+  "expectation_suite_name": "fact_invoice_revsys_suite",
+  "expectations": [
+    {
+      "expectation_type": "expect_table_row_count_to_be_between",
+      "kwargs": {
+        "max_value": 10,
+        "min_value": 1
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_table_columns_to_match_set",
+      "kwargs": {
+        "column_set": [
+          "FACT_INVOICE_KEY",
+          "IO_ID",
+          "INVOICE_AMOUNT_USD",
+          "TRX_TOTALRETAINED",
+          "TRX_TOTALRELEASED",
+          "DIM_BILLING_ACCOUNT_KEY",
+          "ETL_UPDATED_TIMESTAMP",
+          "DATE_MODIFIED_KEY",
+          "INVOICE_DUE_DATE_KEY",
+          "INVOICE_DATE_KEY",
+          "DIM_CURRENCY_KEY",
+          "TRX_TOTALPAID",
+          "TRX_TOTALDUE",
+          "DIM_ENTITY_KEY",
+          "ETL_INSERTED_TIMESTAMP",
+          "INVOICE_AMOUNT_LOCAL_MAJOR",
+          "TRX_AMOUNT_LOCAL",
+          "EMS_ENTITY_KEY",
+          "DDSREADTIME",
+          "DIM_INVOICE_KEY"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "FACT_INVOICE_KEY"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "FACT_INVOICE_KEY"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "DIM_INVOICE_KEY"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "FACT_INVOICE_KEY",
+        "max_value": 99999999999,
+        "min_value": 1
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "DIM_INVOICE_KEY",
+        "max_value": 99999999999,
+        "min_value": 1
+      },
+      "meta": {}
+    }
+  ],
+  "ge_cloud_id": null,
+  "meta": {
+    "citations": [
+      {
+        "citation_date": "2022-12-20T14:53:42.650801Z",
+        "comment": "Created by effective Rule-Based Profiler of OnboardingDataAssistant with the configuration included.\n"
+      },
+      {
+        "batch_request": {
+          "data_asset_name": "fact_invoice_revsys.csv",
+          "data_connector_name": "default_inferred_data_connector_name",
+          "datasource_name": "pandas-test",
+          "limit": 1000
+        },
+        "citation_date": "2022-12-20T14:58:15.884453Z",
+        "comment": "Created suite added via CLI"
+      }
+    ],
+    "great_expectations_version": "0.15.41"
+  }
+}
