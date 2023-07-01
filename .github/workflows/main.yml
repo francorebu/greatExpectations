@@ -45,7 +45,7 @@ jobs:
 
       - name: Initialize Great Expectations project
         run: |
-          great_expectations init
+          great_expectations init --no-view
 
       - name: Run Great Expectations tests
         run: |
