@@ -28,7 +28,6 @@ jobs:
           pip install psycopg2-binary
           pip install snowflake-sqlalchemy
           pip install snowflake-connector-python
-          choco install snowsql -y --allow-empty-checksums # Install SnowSQL using Chocolatey
 
       - name: Configure Snowflake credentials
         run: |
