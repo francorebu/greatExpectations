@@ -42,6 +42,7 @@ jobs:
       - name: Print current directory
         run: |
           echo Current Directory: $PWD
+          ls -l
 
       - name: Run Great Expectations tests
         run: |
