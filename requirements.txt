@@ -1,5 +1,5 @@
-pip install pandas
-pip install sqlalchemy
-pip install snowflake-sqlalchemy
-pip install snowflake-connector-python
-pip install great_expectations
+pandas
+sqlalchemy
+snowflake-sqlalchemy
+snowflake-connector-python
+great_expectations
