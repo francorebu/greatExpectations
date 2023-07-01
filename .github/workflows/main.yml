@@ -19,13 +19,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x' # Replace '3.x' with the Python version you require
-
-      - name: Set GE_HOME path
-        run: echo "GE_HOME=$PWD" >> $GITHUB_ENV
+          python-version: '3.10.5'
 
       - name: Install dependencies from requirements.txt
         run: pip install -r requirements.txt
+        
+      - name: Check Great Expectations version
+        run: great_expectations --version
 
       - name: Run Great Expectations tests
         run: |
@@ -33,5 +33,3 @@ jobs:
           great_expectations checkpoint run revsource_invoices_ckp
           great_expectations checkpoint run dim_invoice_revsys_ckp
           great_expectations checkpoint run fact_invoice_ckp
-
-
