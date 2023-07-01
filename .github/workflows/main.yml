@@ -21,18 +21,31 @@ jobs:
         with:
           python-version: '3.x' # Replace '3.x' with the Python version you require
 
-      - name: Install dependencies
-        run: |
-          pip install pandas
-          pip install sqlalchemy
-          pip install psycopg2-binary
-          pip install snowflake-sqlalchemy
-          pip install snowflake-connector-python
-          pip install great_expectations
+      - name: Install pandas
+        run: pip install pandas
+
+      - name: Install sqlalchemy
+        run: pip install sqlalchemy
+
+      - name: Install psycopg2-binary
+        run: pip install psycopg2-binary
+
+      - name: Install snowflake-sqlalchemy
+        run: pip install snowflake-sqlalchemy
+
+      - name: Install snowflake-connector-python
+        run: pip install snowflake-connector-python
+
+      - name: Install great_expectations
+        run: pip install great_expectations
 
       - name: Print current directory
         run: |
           echo Current Directory: $PWD
+
+      - name: Initialize Great Expectations project
+        run: |
+          great_expectations init
 
       - name: Run Great Expectations tests
         run: |
