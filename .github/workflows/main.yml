@@ -26,7 +26,9 @@ jobs:
 
       - name: Run Great Expectations tests
         run: |
+          cd project/great_expectations
           great_expectations checkpoint run fact_invoice_revsys_ckp
           great_expectations checkpoint run revsource_invoices_ckp
           great_expectations checkpoint run dim_invoice_revsys_ckp
           great_expectations checkpoint run fact_invoice_ckp
+
