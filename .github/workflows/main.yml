@@ -35,9 +35,9 @@ jobs:
         run: |
           echo Current Directory: $PWD
           ls -la
+          cd ..
+          ls -la
 
-      - name: Change directory to greatExpectations
-        run: cd greatExpectations
 
       - name: Run Great Expectations tests
         run: |
