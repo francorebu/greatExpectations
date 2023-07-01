@@ -30,6 +30,10 @@ jobs:
           pip install snowflake-connector-python
           pip install great_expectations
 
+      - name: Print current directory
+        run: |
+          echo Current Directory: $PWD
+
       - name: Run Great Expectations tests
         run: |
           great_expectations checkpoint run fact_invoice_revsys_ckp
