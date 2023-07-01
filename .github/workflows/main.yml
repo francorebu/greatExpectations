@@ -1,0 +1,47 @@
+name: Great Expectations Tests
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x' # Replace '3.x' with the Python version you require
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-pip
+          pip install --upgrade pip
+          pip install pandas sqlalchemy psycopg2-binary snowflake-sqlalchemy snowflake-connector-python
+
+      - name: Install great_expectations
+        run: pip install great_expectations
+
+      - name: Print current directory
+        run: |
+          echo Current Directory: $PWD
+          ls -la
+          cd ..
+          ls -la
+
+
+      - name: Run Great Expectations tests
+        run: |
+          great_expectations checkpoint run fact_invoice_revsys_ckp
+          great_expectations checkpoint run revsource_invoices_ckp
+          great_expectations checkpoint run dim_invoice_revsys_ckp
+          great_expectations checkpoint run fact_invoice_ckp
