@@ -1,5 +1,5 @@
-pip install pandas                     # creo que es para poder ver los archivos en el notebook
-pip install sqlalchemy                 # instala ese paquete para poder conectarte a la bd.
-pip install snowflake-sqlalchemy       # instala libreria para snowflake
-pip install snowflake-connector-python # conectior para python
-pip install great_expectations         # instala great expectations
+pip install pandas
+pip install sqlalchemy
+pip install snowflake-sqlalchemy
+pip install snowflake-connector-python
+pip install great_expectations
