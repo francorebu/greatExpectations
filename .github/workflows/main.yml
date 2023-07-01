@@ -21,23 +21,8 @@ jobs:
         with:
           python-version: '3.x' # Replace '3.x' with the Python version you require
 
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y python3-pip
-          pip install --upgrade pip
-          pip install pandas sqlalchemy psycopg2-binary snowflake-sqlalchemy snowflake-connector-python
-
-      - name: Install great_expectations
-        run: pip install great_expectations
-
-      - name: Print current directory
-        run: |
-          echo Current Directory: $PWD
-          ls -la
-          cd ..
-          ls -la
-
+      - name: Install dependencies from requirements.txt
+        run: pip install -r requirements.txt
 
       - name: Run Great Expectations tests
         run: |
