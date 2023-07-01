@@ -10,7 +10,7 @@ on:
 
 jobs:
   test:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -21,20 +21,12 @@ jobs:
         with:
           python-version: '3.x' # Replace '3.x' with the Python version you require
 
-      - name: Install pandas
-        run: pip install pandas
-
-      - name: Install sqlalchemy
-        run: pip install sqlalchemy
-
-      - name: Install psycopg2-binary
-        run: pip install psycopg2-binary
-
-      - name: Install snowflake-sqlalchemy
-        run: pip install snowflake-sqlalchemy
-
-      - name: Install snowflake-connector-python
-        run: pip install snowflake-connector-python
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-pip
+          pip install --upgrade pip
+          pip install pandas sqlalchemy psycopg2-binary snowflake-sqlalchemy snowflake-connector-python
 
       - name: Install great_expectations
         run: pip install great_expectations
@@ -42,11 +34,10 @@ jobs:
       - name: Print current directory
         run: |
           echo Current Directory: $PWD
-          dir
+          ls -la
 
       - name: Run Great Expectations tests
         run: |
-          cd greatExpectations
           great_expectations checkpoint run fact_invoice_revsys_ckp
           great_expectations checkpoint run revsource_invoices_ckp
           great_expectations checkpoint run dim_invoice_revsys_ckp
