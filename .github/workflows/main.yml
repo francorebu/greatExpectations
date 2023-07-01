@@ -28,6 +28,7 @@ jobs:
           pip install psycopg2-binary
           pip install snowflake-sqlalchemy
           pip install snowflake-connector-python
+          pip install great_expectations
 
       - name: Run Great Expectations tests
         run: |
