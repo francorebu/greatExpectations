@@ -29,15 +29,6 @@ jobs:
           pip install snowflake-sqlalchemy
           pip install snowflake-connector-python
 
-      - name: Configure Snowflake credentials
-        run: |
-          echo [my_snowflake_connection] > %USERPROFILE%\.snowsql\config
-          echo account = YOUR_SNOWFLAKE_ACCOUNT_URL >> %USERPROFILE%\.snowsql\config
-          echo user = YOUR_SNOWFLAKE_USERNAME >> %USERPROFILE%\.snowsql\config
-          echo password = YOUR_SNOWFLAKE_PASSWORD >> %USERPROFILE%\.snowsql\config
-          echo database = YOUR_SNOWFLAKE_DATABASE >> %USERPROFILE%\.snowsql\config
-          echo warehouse = YOUR_SNOWFLAKE_WAREHOUSE >> %USERPROFILE%\.snowsql\config
-
       - name: Run Great Expectations tests
         run: |
           great_expectations init
