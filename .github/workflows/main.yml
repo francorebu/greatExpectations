@@ -33,7 +33,7 @@ jobs:
       - name: Run Great Expectations tests
         run: |
           great_expectations init
-          great_expectations --v3-api checkpoint run fact_invoice_revsys_ckp
-          great_expectations --v3-api checkpoint run revsource_invoices_ckp
-          great_expectations --v3-api checkpoint run dim_invoice_revsys_ckp
-          great_expectations --v3-api checkpoint run fact_invoice_ckp
+          great_expectations checkpoint run fact_invoice_revsys_ckp
+          great_expectations checkpoint run revsource_invoices_ckp
+          great_expectations checkpoint run dim_invoice_revsys_ckp
+          great_expectations checkpoint run fact_invoice_ckp
