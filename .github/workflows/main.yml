@@ -21,15 +21,17 @@ jobs:
         with:
           python-version: '3.x' # Replace '3.x' with the Python version you require
 
+      - name: Set GE_HOME path
+        run: echo "GE_HOME=$PWD" >> $GITHUB_ENV
+
       - name: Install dependencies from requirements.txt
         run: pip install -r requirements.txt
 
       - name: Run Great Expectations tests
         run: |
-          echo Current Directory: $PWD
-          dir
           great_expectations checkpoint run fact_invoice_revsys_ckp
           great_expectations checkpoint run revsource_invoices_ckp
           great_expectations checkpoint run dim_invoice_revsys_ckp
           great_expectations checkpoint run fact_invoice_ckp
+
 
