@@ -30,8 +30,10 @@ jobs:
           dir
 
       - name: Run Great Expectations tests
+        env:
+          GE_HOME: ${{ github.workspace }}/project/great_expectations  # Set the GE_HOME path
         run: |
-          cd /great_expectations
+          cd $GE_HOME
           great_expectations checkpoint run fact_invoice_revsys_ckp
           great_expectations checkpoint run revsource_invoices_ckp
           great_expectations checkpoint run dim_invoice_revsys_ckp
