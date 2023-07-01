@@ -36,6 +36,9 @@ jobs:
           echo Current Directory: $PWD
           ls -la
 
+      - name: Change directory to greatExpectations
+        run: cd greatExpectations
+
       - name: Run Great Expectations tests
         run: |
           great_expectations checkpoint run fact_invoice_revsys_ckp
